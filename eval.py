@@ -44,4 +44,4 @@ def mot_metrics_enhanced_calculator(gt_file_path, result_file_path, out_file_pat
 
 if __name__ == '__main__':
     time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    mot_metrics_enhanced_calculator("./dataset/gt/gt.txt", ".dataset/res/res.txt", f".dataset/res/out_{time}.txt")
+    mot_metrics_enhanced_calculator("./dataset/gt/gt.txt", "./dataset/res/res.txt", f"./dataset/res/out_{time}.txt")
