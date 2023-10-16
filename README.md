@@ -14,9 +14,9 @@ Trackingalgorithmus wird Objekt O<sub>1</sub> zum Track h<sub>1</sub> mit der Fa
 (t, t+1, t+2, ...) zugeordnet. Beim Zeitpunkt t+3 kommt es zu einem Mismatch, das heißt O<sub>1</sub> blau wird fälschlicherweise zu O<sub>2</sub> grün.
 
 ## Abgabe
-Abzugeben ist diese Aufgabe via Moodle. Bitte löschen Sie vor der Abgabe alle Ausgaben: 
-Cell → All Outputs → Clear. Alle Abgaben werden mit einem Plagiats-Checker überprüft 
-werden. Wird ein Plagiat erkannt, werden alle beteiligten Personen für diese Aufgabe negativ beurteilt. Des Weiteren werden Sie Teilaufgaben der restlichen Klasse präsentieren.
+Abzugeben ist diese Aufgabe via Github Classroom. Alle Abgaben werden mit einem Plagiats-Checker überprüft werden. 
+Wird ein Plagiat erkannt, werden alle beteiligten Personen für diese Aufgabe negativ beurteilt. Des Weiteren werden SchülerInnen
+Teile der Aufgabe der restlichen Klasse präsentieren.
 
 ## Beurteilung
 Eine positive Beurteilung kann folgendermaßen erreicht werden:
@@ -163,7 +163,7 @@ beispielsweise die Bilder für die ersten drei Frames.
 
 Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
-<img src="readme_img/img_2.png" alt="drawing" width="800px"/> | <img src="readme_img/img_3.png" alt="drawing" width="800px"/> | <img src="readme_img/mg_4.png" alt="drawing" width="800px"/>
+<img src="readme_img/img_2.png" alt="drawing" width="800px"/> | <img src="readme_img/img_3.png" alt="drawing" width="800px"/> | <img src="readme_img/img_4.png" alt="drawing" width="800px"/>
 
 ### 2. Funktion für das Überlappungsmaß
 Das Überlappungsmaß, ist eine Metrik zur Bewertung der Genauigkeit von Bounding Boxen, insbesondere in Bezug auf 
