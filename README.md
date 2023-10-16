@@ -7,11 +7,11 @@ identifiziert und begrenzende Rechtecke um sie herumgezogen werden. Tracking zie
 ab, diese erkannten Objekte im Laufe der Zeit zu verfolgen, um deren Position und Bewegung 
 zu bestimmen.
 
-<img src="img_1.png" alt="drawing" width="400px"/>
+<img src="readme_img/img_1.png" alt="drawing" width="400px"/>
 In der Abbildung von oben können Sie eine bildliche Beschreibung der Aufgabe sehen. Es sind verschiedene Objekte 
 (O<sub>1</sub>, O<sub>2</sub>, O<sub>3</sub>) und Tracks (h<sub>1</sub>, h<sub>2</sub>, h<sub>3</sub>) zu erkennen. Vom
-Trackingalgorithmus wird Objekt O<sub>1</sub> zum Track h<sub>1</sub> mit der Farbe blau zugeordnet über die Zeit 
-(t, t+1, t+2, ...) zugeordnet. Beim Zeitpunkt t+3 kommt es zu einem Msmatch, dass heißt O<sub>1</sub> blau wird fälschlicherweise zu O<sub>2</sub> grün.
+Trackingalgorithmus wird Objekt O<sub>1</sub> zum Track h<sub>1</sub> mit der Farbe Blau zugeordnet über die Zeit 
+(t, t+1, t+2, ...) zugeordnet. Beim Zeitpunkt t+3 kommt es zu einem Mismatch, das heißt O<sub>1</sub> blau wird fälschlicherweise zu O<sub>2</sub> grün.
 
 ## Abgabe
 Abzugeben ist diese Aufgabe via Moodle. Bitte löschen Sie vor der Abgabe alle Ausgaben: 
@@ -27,13 +27,9 @@ Eine positive Beurteilung kann folgendermaßen erreicht werden:
 - Muss einer visuellen Einschätzung genügen
 - Die Genauigkeit ihrer Methode muss diesen Mindeststandard einhalten (dh.: besser sein):
 
-    | num_frames | idf1 | idp | idr | recall | precision | num_objects | mostly_tracked | partially_tracked |
-    | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-    | 795 | 0.289712 | 0.25986 | 0.327312 | 0.905806 | 0.719139 | 4650 | 18 | 1 |
-
-    | mostly_lost | num_false_positives | num_misses | num_switches | num_fragmentations | mota | motp |
-    |-------------| --- | --- | --- | --- | --- | --- |
-    | 0 | 1645 | 438 | 225 | 147 | 0.503656 | 0.292089 |
+    | num_frames | idf1 | idp | idr | recall | precision | num_objects | mostly_tracked | partially_tracked | ostly_lost | num_false_positives | num_misses | num_switches | num_fragmentations | mota | motp |
+    | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | --- | --- | --- |
+    | 795 | 0.289712 | 0.25986 | 0.327312 | 0.905806 | 0.719139 | 4650 | 18 | 1 | 0 | 1645 | 438 | 225 | 147 | 0.503656 | 0.292089 |
 
     | Name                 | Description                                                                        |
     | :------------------- | :--------------------------------------------------------------------------------- |
@@ -161,13 +157,13 @@ Hier befinden sich die Bilder passend zu den Framenummern in den Files gt.txt un
 
 ## Aufgaben
 ### 1. Daten einlesen und Bounding Boxen Zeichnen
-Lesen sie mithilfe von Numpy die Detektionen ein und mithilfe von Pillow die dazugehörigen Bilder. Zeichnen Sie in die 
+Lesen Sie mithilfe von Numpy die Detektionen ein und mithilfe von Pillow die dazugehörigen Bilder. Zeichnen Sie in die 
 Bilder die Detektionen und speichern sie die entstandenen Bilder unter folgendem Pfad `dataset/out/` ab. Hier 
 beispielsweise die Bilder für die ersten drei Frames.
 
 Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
-<img src="img_2.png" alt="drawing" width="800px"/> | <img src="img_3.png" alt="drawing" width="800px"/> | <img src="img_4.png" alt="drawing" width="800px"/>
+<img src="readme_img/img_2.png" alt="drawing" width="800px"/> | <img src="readme_img/img_3.png" alt="drawing" width="800px"/> | <img src="readme_img/mg_4.png" alt="drawing" width="800px"/>
 
 ### 2. Funktion für das Überlappungsmaß
 Das Überlappungsmaß, ist eine Metrik zur Bewertung der Genauigkeit von Bounding Boxen, insbesondere in Bezug auf 
@@ -176,7 +172,7 @@ Tracking, verwendet. Das Überlappungsmaß kann folgendermaßen für zwei Boundi
 
 Area_of_Overlap / Area_of_Union
 
-<img src="img_5.png" alt="drawing" width="400px"/>
+<img src="readme_img/img_5.png" alt="drawing" width="400px"/>
 
 Das Überlappungsmaß soll mithilfe von Numpy vektorisiert berechnet werden. Die Methode sollte folgendermaßen definiert
 werden.
@@ -211,14 +207,14 @@ pip install scipy
 ```
 
 ### 4. Matchen der Detektionen zu den Tracks
-Matchen Sie mithilfe des Ergebnisses von `scipy.optimize.linear_sum_assignment` die Detektions zu den Tracks und 
+Matchen Sie mithilfe des Ergebnisses von `scipy.optimize.linear_sum_assignment` die Detektionen zu den Tracks und 
 Zeichnen Sie diese in die dazugehörigen Frames ein. Für eine bessere Visualisierung nutzen Sie unterschiedliche Farben
 für unterschiedliche IDs. Dies kann mit einer endlichen Liste von Farben gemacht werden. Z.B.: Eine Liste mit 12 Farben
 die sich nach jeder 12 ID wiederholt. Weiteres soll über die Bounding Box die ID eingezeichnet werden.
 
 Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
-![img_6.png](img_6.png) | ![img_7.png](img_7.png) | ![img_8.png](img_8.png)!
+![img_6.png](readme_img/img_6.png) | ![img_7.png](readme_img/img_7.png) | ![img_8.png](readme_img/img_8.png)!
 
 Schreiben anschließend die Ergebnisse in ein File in dem Pfad `dataset/res/res.txt` mit folgendem Datenformat:
 <code>
@@ -246,15 +242,11 @@ evaluieren.
 
 Sie sollten beispielsweise eine Ausgabe der folgenden Form erhalten:
 
-| num_frames | idf1 | idp | idr | recall | precision | num_objects | mostly_tracked | partially_tracked |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 795 | 0.289712 | 0.25986 | 0.327312 | 0.905806 | 0.719139 | 4650 | 18 | 1 |
+| num_frames | idf1 | idp | idr | recall | precision | num_objects | mostly_tracked | partially_tracked | ostly_lost | num_false_positives | num_misses | num_switches | num_fragmentations | mota | motp |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | --- | --- | --- |
+| 795 | 0.289712 | 0.25986 | 0.327312 | 0.905806 | 0.719139 | 4650 | 18 | 1 | 0 | 1645 | 438 | 225 | 147 | 0.503656 | 0.292089 |
 
-| mostly_lost | num_false_positives | num_misses | num_switches | num_fragmentations | mota | motp |
-|-------------| --- | --- | --- | --- | --- | --- |
-| 0 | 1645 | 438 | 225 | 147 | 0.503656 | 0.292089 |
-
-Des Weiteren wird ein Outputfile `dataset/res/out_{timestamp}.txt` geschrieben wo Sie ihre Ergebnisse vergleichen können. Um das 
+Des Weiteren wird ein Outputfile `dataset/res/out_{timestamp}.txt` geschrieben, wo Sie ihre Ergebnisse vergleichen können. Um das 
 Script `eval.py` verwenden zu können muss folgendes Package installiert werden:
 ```
 pip install motmetrics
@@ -264,7 +256,7 @@ pip install motmetrics
 1. Erstellen Sie eine Klasse TrackerBox mit folgenden Klassenvariablen
    - vier Eckpunkten
    - der ID 
-   - und einer Variable, welche hochgezählt wird wenn die Box in einem Frame nicht gematched wurde. Die kann dazu verwendet werden, um die Box nach der Zeit wieder zu löschen.
-2. Eine Liste mit Tracks welche TrackerBoxen enthält die mit den Detektions gematched werden. Damit diese Liste nicht unendlich lang wird, sollten alte Trackerboxen welche nach einiger Zeit nicht gemachted wurden wieder gelöscht werden.
+   - und einer Variable, welche hochgezählt wird, wenn die Box in einem Frame nicht gematched wurde. Die kann dazu verwendet werden, um die Box nach der Zeit wieder zu löschen.
+2. Eine Liste mit Tracks welche TrackerBoxen enthält die mit den Detektionen gematched werden. Damit diese Liste nicht unendlich lang wird, sollten alte Trackerboxen welche nach einiger Zeit nicht gemachted wurden wieder gelöscht werden.
 3. Sauber arbeiten!
 
