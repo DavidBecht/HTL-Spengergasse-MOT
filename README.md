@@ -25,7 +25,7 @@ Eine positive Beurteilung kann folgendermaßen erreicht werden:
 - In jeder Teilaufgabe mindestens eine Aufgabe gelöst
 - Bonuspunkte für bessere Ergebnisse als der angeführte Mindeststandard
 - Muss einer visuellen Einschätzung genügen
-- Die Genauigkeit ihrer Methode muss diesen Mindeststandard einhalten (dh.: besser sein):
+- Die Genauigkeit ihrer Methode muss besser oder gleich gut dem Mindeststandard sein:
 
     | num_frames | idf1 | idp | idr | recall | precision | num_objects | mostly_tracked | partially_tracked | ostly_lost | num_false_positives | num_misses | num_switches | num_fragmentations | mota | motp |
     | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---| --- | --- | --- | --- | --- | --- |
@@ -142,7 +142,7 @@ Jede Zeile des Files enthält ein Objekt mit folgenden Werten:
 </code>
 
 - frame: Die Nummer des Bildes (Frame)
-- id: Die tatsächliche Objekt ID
+- id: Eine Objekt-ID
 - bb_left: Linker Punkt der Bounding Box
 - bb_top: Oberer Punkt der Bounding Box
 - bb_width: Breite der Bounding Box
@@ -156,7 +156,7 @@ Jede Zeile des Files enthält ein Objekt mit folgenden Werten:
 Hier befinden sich die Bilder passend zu den Framenummern in den Files gt.txt und det.txt
 
 ## Aufgaben
-### 1. Daten einlesen und Bounding Boxen Zeichnen
+### 1. Daten einlesen und Bounding Boxen Zeichnen (2 Punkte)
 Lesen Sie mithilfe von Numpy die Detektionen ein und mithilfe von Pillow die dazugehörigen Bilder. Zeichnen Sie in die 
 Bilder die Detektionen und speichern sie die entstandenen Bilder unter folgendem Pfad `dataset/out/` ab. Hier 
 beispielsweise die Bilder für die ersten drei Frames.
@@ -165,7 +165,7 @@ Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
 <img src="readme_img/img_2.png" alt="drawing" width="800px"/> | <img src="readme_img/img_3.png" alt="drawing" width="800px"/> | <img src="readme_img/img_4.png" alt="drawing" width="800px"/>
 
-### 2. Funktion für das Überlappungsmaß
+### 2. Funktion für das Überlappungsmaß (2 Punkte)
 Das Überlappungsmaß, ist eine Metrik zur Bewertung der Genauigkeit von Bounding Boxen, insbesondere in Bezug auf 
 Objekterkennung und -segmentierung. Sie wird häufig in Computer Vision-Anwendungen, wie der Objekterkennung und dem 
 Tracking, verwendet. Das Überlappungsmaß kann folgendermaßen für zwei Bounding Boxen berechnet werden: 
@@ -174,24 +174,28 @@ Area_of_Overlap / Area_of_Union
 
 <img src="readme_img/img_5.png" alt="drawing" width="400px"/>
 
-Das Überlappungsmaß soll mithilfe von Numpy vektorisiert berechnet werden. Die Methode sollte folgendermaßen definiert
+Das Überlappungsmaß soll mithilfe von Numpy vektorisiert berechnet werden. Die Methode könnte zum Beispiel folgendermaßen definiert
 werden.
 ```python
+# mit box_1 [x1, y1, x2, y2] und box_2 [x1, y1, x2, y2]
 def ueberlappungsmass(box_1: np.array, box_2: np.array) -> float:
     # TODO
     return ueberlappungsmass
+```
 
-# mit box_1 [x1, y1, x2, y2] und box_2 [x1, y1, x2, y2]
+Zur Kontrolle, ob Ihre Methode richtig funktioniert können Sie folgende Testdaten verwenden:
+```
 res = ueberlappungsmass(np.array([495, 158, 525.979, 228.299]), np.array([500, 158, 530.979, 228.299]))
 print(res)
 0.7295762459774469
 ```
 
-### 3. Berechnung und lösen der Kostenmatrix
-Die Kostenmatrix enthält die Überlappungsmaße von allen Detektionen im Frame zu allen getrackten Objekten.
+### 3. Berechnung und lösen der Kostenmatrix (2 Punkte)
+Die Kostenmatrix enthält die Überlappungsmaße von allen Detektionen im Frame zu allen getrackten Objekten. Hier ein Beispiel
+einer Kostenmatrix:
 
 |       | Track 1 | Track 2 | Track 3 | Track 4
-| --- |---------| --- | --- |  --- |
+| --- |---| --- | --- |  --- |
 Detection 1 | 0.85 | 0.70 | 0.20 | 0.0
 Detection 2 | 0.65 | 0.45 | 0.10 | 0.90
 Detection 3 | 0.25 | 0.15 | 0.70 | 0.35
@@ -206,7 +210,7 @@ Das Scipy Package kann folgendermaßen installiert werden.
 pip install scipy
 ```
 
-### 4. Matchen der Detektionen zu den Tracks
+### 4. Matchen der Detektionen zu den Tracks (3 Punkte)
 Matchen Sie mithilfe des Ergebnisses von `scipy.optimize.linear_sum_assignment` die Detektionen zu den Tracks und 
 Zeichnen Sie diese in die dazugehörigen Frames ein. Für eine bessere Visualisierung nutzen Sie unterschiedliche Farben
 für unterschiedliche IDs. Dies kann mit einer endlichen Liste von Farben gemacht werden. Z.B.: Eine Liste mit 12 Farben
@@ -258,5 +262,4 @@ pip install motmetrics
    - der ID 
    - und einer Variable, welche hochgezählt wird, wenn die Box in einem Frame nicht gematched wurde. Die kann dazu verwendet werden, um die Box nach der Zeit wieder zu löschen.
 2. Eine Liste mit Tracks welche TrackerBoxen enthält die mit den Detektionen gematched werden. Damit diese Liste nicht unendlich lang wird, sollten alte Trackerboxen welche nach einiger Zeit nicht gemachted wurden wieder gelöscht werden.
-3. Sauber arbeiten!
 
