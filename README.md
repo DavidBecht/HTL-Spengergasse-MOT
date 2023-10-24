@@ -16,7 +16,9 @@ Trackingalgorithmus wird Objekt O<sub>1</sub> zum Track h<sub>1</sub> mit der Fa
 ## Abgabe
 Abzugeben ist diese Aufgabe via Github Classroom. Alle Abgaben werden mit einem Plagiats-Checker überprüft werden. 
 Wird ein Plagiat erkannt, werden alle beteiligten Personen für diese Aufgabe negativ beurteilt. Des Weiteren werden SchülerInnen
-Teile der Aufgabe der restlichen Klasse präsentieren.
+Teile der Aufgabe der restlichen Klasse präsentieren. 
+
+** Bitte checken Sie keine erzeugten Bilder oder Result Files ins Github Repository ein. Dafür wird Ihnen einen Punkt abgezogen. **
 
 ## Beurteilung
 Eine positive Beurteilung kann folgendermaßen erreicht werden:
@@ -158,12 +160,24 @@ Hier befinden sich die Bilder passend zu den Framenummern in den Files gt.txt un
 ## Aufgaben
 ### 1. Daten einlesen und Bounding Boxen Zeichnen (2 Punkte)
 Lesen Sie mithilfe von Numpy die Detektionen ein und mithilfe von Pillow die dazugehörigen Bilder. Zeichnen Sie in die 
-Bilder die Detektionen und speichern sie die entstandenen Bilder unter folgendem Pfad `dataset/out/` ab. Hier 
-beispielsweise die Bilder für die ersten drei Frames.
+Bilder die Detektionen und speichern sie die entstandenen Bilder unter folgendem Pfad `dataset/out/` ab.
+** Checken Sie diese Bilder nicht ins github repository ein!. ** .Hier beispielsweise die Bilder für die ersten drei Frames.
 
 Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
 <img src="readme_img/img_2.png" alt="drawing" width="800px"/> | <img src="readme_img/img_3.png" alt="drawing" width="800px"/> | <img src="readme_img/img_4.png" alt="drawing" width="800px"/>
+
+Zeichnen Sie die Boxen mit Pillow in die Frames ein.
+```python
+from PIL import Image, ImageDraw
+img = Image.open(image_path)
+img_draw = ImageDraw.Draw(img)
+img_draw.rectangle(box, outline='red')
+```
+Das Pillow Package kann folgendermaßen installiert werden.
+```
+pip install Pillow
+```
 
 ### 2. Funktion für das Überlappungsmaß (2 Punkte)
 Das Überlappungsmaß, ist eine Metrik zur Bewertung der Genauigkeit von Bounding Boxen, insbesondere in Bezug auf 
