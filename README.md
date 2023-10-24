@@ -18,7 +18,7 @@ Abzugeben ist diese Aufgabe via Github Classroom. Alle Abgaben werden mit einem 
 Wird ein Plagiat erkannt, werden alle beteiligten Personen für diese Aufgabe negativ beurteilt. Des Weiteren werden SchülerInnen
 Teile der Aufgabe der restlichen Klasse präsentieren. 
 
-** Bitte checken Sie keine erzeugten Bilder oder Result Files ins Github Repository ein. Dafür wird Ihnen einen Punkt abgezogen. **
+**Bitte checken Sie keine erzeugten Bilder oder Result Files ins Github Repository ein. Dafür wird Ihnen einen Punkt abgezogen.**
 
 ## Beurteilung
 Eine positive Beurteilung kann folgendermaßen erreicht werden:
@@ -161,7 +161,7 @@ Hier befinden sich die Bilder passend zu den Framenummern in den Files gt.txt un
 ### 1. Daten einlesen und Bounding Boxen Zeichnen (2 Punkte)
 Lesen Sie mithilfe von Numpy die Detektionen ein und mithilfe von Pillow die dazugehörigen Bilder. Zeichnen Sie in die 
 Bilder die Detektionen und speichern sie die entstandenen Bilder unter folgendem Pfad `dataset/out/` ab.
-** Checken Sie diese Bilder nicht ins github repository ein!. ** .Hier beispielsweise die Bilder für die ersten drei Frames.
+**Checken Sie diese Bilder nicht ins github repository ein!.** .Hier beispielsweise die Bilder für die ersten drei Frames.
 
 Frame 1 | Frame 2 | Frame 3
 --- | --- | --- 
